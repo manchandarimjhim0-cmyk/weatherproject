@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="project.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- ================= NAVBAR ================= -->
+
+        <div class="navbar">
+
+            <header>
+                <nav>
+                    <ul>
+
+                        <li>
+                            <a href="#">
+                                <img src="https://tse4.mm.bing.net/th/id/OIP.IE1MS_fzMSa78G9reGxs1QHaG2?r=0&pid=Api&P=0&h=180"
+                                    alt="Weather Logo">
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#current-weather" class="active">
+                                🌦️
+                                <span>Weather</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#cities-section">
+                                🏙️
+                                <span>Cities</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#map-section">
+                                🗺️
+                                <span>Map</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#settings-section">
+                                ⚙️
+                                <span>Settings</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+            </header>
+
+        </div>
+
+        <!-- ================= MAIN SECTION ================= -->
+
+        <div class="main">
+
+            <!-- Search Box -->
+
+            <div class="search-box">
+                <input type="text"
+                       id="city"
+                       placeholder="Search for cities...">
+            </div>
+
+            <!-- Current Weather -->
+
+            <div class="current-weather" id="current-weather">
+
+                <div class="left-weather">
+
+                    <h1 id="cityName">Delhi</h1>
+
+                    <p id="rainChance">
+                        Chance of rain: 0%
+                    </p>
+
+                    <h2 id="temperature">
+                        31°C
+                    </h2>
+
+                </div>
+
+                <div class="right-weather">
+
+                    <h1 id="weatherIcon">
+                        ☀️
+                    </h1>
+
+                </div>
+
+            </div>
+
+            <!-- Today's Forecast -->
+
+            <div class="today-forecast">
+
+                <h3>TODAY'S FORECAST</h3>
+
+                <div class="forecast-box" id="forecastBox">
+
+                    <div class="hour-card">
+                        <p>6:00 AM</p>
+                        <h2>☁️</h2>
+                        <p>25°</p>
+                    </div>
+
+                    <div class="hour-card">
+                        <p>9:00 AM</p>
+                        <h2>⛅</h2>
+                        <p>28°</p>
+                    </div>
+
+                    <div class="hour-card">
+                        <p>12:00 PM</p>
+                        <h2>☀️</h2>
+                        <p>33°</p>
+                    </div>
+
+                    <div class="hour-card">
+                        <p>3:00 PM</p>
+                        <h2>☀️</h2>
+                        <p>34°</p>
+                    </div>
+
+                    <div class="hour-card">
+                        <p>6:00 PM</p>
+                        <h2>☀️</h2>
+                        <p>32°</p>
+                    </div>
+
+                    <div class="hour-card">
+                        <p>9:00 PM</p>
+                        <h2>⛅</h2>
+                        <p>30°</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Air Conditions -->
+
+            <div class="air-conditions">
+
+                <h3>AIR CONDITIONS</h3>
+
+                <div class="conditions">
+
+                    <div class="condition-card">
+                        <p>🌡️ Real Feel</p>
+                        <h2 id="feel">30°</h2>
+                    </div>
+
+                    <div class="condition-card">
+                        <p>🌬️ Wind</p>
+                        <h2 id="wind">0.2 km/h</h2>
+                    </div>
+
+                    <div class="condition-card">
+                        <p>💧 Humidity</p>
+                        <h2 id="humidity">0%</h2>
+                    </div>
+
+                    <div class="condition-card">
+                        <p>☀️ UV Index</p>
+                        <h2 id="uv">3</h2>
+                    </div>
+
+                    <div class="condition-card">
+    <p>🌡️ Pressure</p>
+    <h2 id="pressure">0 mb</h2>
+</div>
+
+<div class="condition-card">
+    <p>👀 Visibility</p>
+    <h2 id="visibility">0 km</h2>
+</div>
+
+<div class="condition-card">
+    <p>🌅 Sunrise</p>
+    <h2 id="sunrise">--:--</h2>
+</div>
+
+<div class="condition-card">
+    <p>🌇 Sunset</p>
+    <h2 id="sunset">--:--</h2>
+</div>
+
+                </div>
+
+            </div>
+
+            <!-- ================= POPULAR CITIES ================= -->
+
+            <div class="cities-section" id="cities-section">
+
+                <h3>POPULAR CITIES</h3>
+
+                <div class="city-list">
+
+                    <button onclick="getWeather('Delhi')">Delhi</button>
+
+                    <button onclick="getWeather('Mumbai')">Mumbai</button>
+
+                    <button onclick="getWeather('Saharanpur')">Saharanpur</button>
+
+                    <button onclick="getWeather('London')">London</button>
+
+                    <button onclick="getWeather('Tokyo')">Tokyo</button>
+
+                </div>
+
+            </div>
+
+            <!-- ================= MAP ================= -->
+
+            <div class="map-section" id="map-section">
+
+                <h3>LOCATION MAP</h3>
+
+                <iframe
+                    id="mapFrame"
+                    width="100%"
+                    height="300"
+                    style="border:0; border-radius:20px;"
+                    src="https://www.google.com/maps?q=Delhi&output=embed">
+                </iframe>
+
+            </div>
+
+            <!-- ================= SETTINGS ================= -->
+
+            <div class="settings-section" id="settings-section">
+
+                <h3>SETTINGS</h3>
+
+                <button id="themeBtn">
+                    Toggle Dark Mode
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- ================= 7 DAY FORECAST ================= -->
+
+        <div class="forecast-7day">
+
+            <h3>7-DAY FORECAST</h3>
+
+            <div id="weekForecastContent">
+
+                <div class="day-card">
+                    <span>Today</span>
+                    <span>☀️ Sunny</span>
+                    <span>36° / 22°</span>
+                </div>
+
+                <div class="day-card">
+                    <span>Tue</span>
+                    <span>☀️ Sunny</span>
+                    <span>37° / 21°</span>
+                </div>
+
+                <div class="day-card">
+                    <span>Wed</span>
+                    <span>☀️ Sunny</span>
+                    <span>37° / 21°</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="project.js"></script>
+
+</body>
+
+</html>
